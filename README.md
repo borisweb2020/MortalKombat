@@ -1,4 +1,4 @@
-<h1>ZaraMarathon</h1>
+<h1 style="text-aling: center;">ZaraMarathon</h1>
 
 <h3>Creating Mortal Kombat app</h3>
 
