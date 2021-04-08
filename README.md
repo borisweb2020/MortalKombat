@@ -4,4 +4,5 @@
 
 <ul>
 	<li>the home work of the first lesson - creating a repository // <i>Apr 6, 2021</i> </li>
+	<li>the home work of the second lesson - creating two players by main.js // <i>Apr 8, 2021</i> </li>
 </ul>
