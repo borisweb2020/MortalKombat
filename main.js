@@ -1,9 +1,10 @@
-const $arenas = document.querySelector('.arenas');
+const $arenas       = document.querySelector('.arenas');
+const $randomButton = document.querySelector('.button');
 
 const player1 = {
 	player: 1,
 	name: 'Scorpion',
-	hp: 50,
+	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
 	weapon: ['sword', 'harpoon', 'star'],
 	attack: function(){
@@ -14,7 +15,7 @@ const player1 = {
 const player2 = {
 	player: 2,
 	name: 'Kitana',
-	hp: 80,
+	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
 	weapon: ['sword', 'harpoon', 'star'],
 	attack: function(){
@@ -41,7 +42,7 @@ function createPlayer(player_obj){
 	const $div_progressbar = createElement('div', 'progressbar');
 	
 	const $div_life = createElement('div', 'life');
-	$div_life.style.width = String(player_obj.hp) + '%';
+	$div_life.style.width = player_obj.hp + '%';
 
 	const $div_name = createElement('div', 'name');
 	$div_name.textContent = player_obj.name;
@@ -66,6 +67,40 @@ function createPlayer(player_obj){
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
 
+function changeHP(players){
+	for(let i = 0; i < players.length; i++){
+		
+		const $playerLife = document.querySelector('.player' + players[i].player + ' .life');
+		players[i].hp -= Math.ceil(Math.random() * 20);
+		
+		if(players[i].hp <= 0){
+			players[i].hp = 0;
+			$randomButton.disabled = true;
+
+			if(i === 0){
+				$arenas.appendChild(playerWin(players[i+1].name));
+			} else {
+				$arenas.appendChild(playerWin(players[i-1].name));
+			}
+		}
+
+		$playerLife.style.width = players[i].hp + '%';
+
+	} // an end of the loop
+}
+
+
+function playerWin(name){
+	const $winTitle = createElement('div', 'loseTitle');
+	$winTitle.textContent = name + ' win';
+
+	return $winTitle;
+}
+
+$randomButton.addEventListener('click', function() {
+	const arr = [player1, player2];
+	changeHP(arr);
+});
 
 
 
