@@ -72,10 +72,9 @@ function changeHP(players){
 		
 		const $playerLife = document.querySelector('.player' + players[i].player + ' .life');
 		players[i].hp -= Math.ceil(Math.random() * 20);
-		$playerLife.style.width = players[i].hp + '%';
-
+		
 		if(players[i].hp <= 0){
-			$playerLife.style.width = 0;
+			players[i].hp = 0;
 			$randomButton.disabled = true;
 
 			if(i === 0){
@@ -84,6 +83,9 @@ function changeHP(players){
 				$arenas.appendChild(playerWin(players[i-1].name));
 			}
 		}
+
+		$playerLife.style.width = players[i].hp + '%';
+
 	} // an end of the loop
 }
 
@@ -96,8 +98,7 @@ function playerWin(name){
 }
 
 $randomButton.addEventListener('click', function() {
-	const arr = [];
-	arr.push(player1, player2);
+	const arr = [player1, player2];
 	changeHP(arr);
 });
 
