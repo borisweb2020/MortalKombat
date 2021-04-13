@@ -262,6 +262,10 @@ body {
     top: 1px;
 }
 
+.control .button:disabled{
+    opacity: .7;
+}
+
 .loseTitle {
     position: absolute;
     top: 25%;
@@ -273,4 +277,99 @@ body {
     color: white;
     font-family: "Mortal Kombat 3";
 }
+
+.reload_wrap {
+    position: absolute;
+    top: 10%;
+    z-index: 1000;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.reload_wrap .button {
+    margin-top: 0;
+}
+
+@media(max-width: 767.98px){
+
+    .wall-left {
+        width: 87px;
+        transform: translate(-260px, 0px);
+    }
+
+    .wall-right {
+        width: 87px;
+        transform: translate(260px, 0px);
+    }
+
+    .arenas{
+        width: 425px;
+    }
+
+    .player1,
+    .player2 {
+        width: 45%;
+    }
+
+    .character {
+        width: 100px;
+        height: 210px;
+    }
+
+    .player1 .character {
+        left: 20px;
+    }
+
+    .player2 .character {
+        right: 20px;
+    }
+
+    .progressbar {
+        width: 165px;
+        border: 2px solid #f5d100;
+        top: 40px;
+        height: 24px;
+    }
+
+    .player1 .progressbar {
+        left: 10px;
+    }
+
+    .player2 .progressbar {
+        right: 10px;
+    }
+
+    .name {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .player1 .name {
+        left: 5px;
+    }
+
+    .player2 .name {
+        right: 5px;
+    }
+
+    .chat {
+        width: 425px;
+    }
+
+    .control {
+       width: 135px;
+    }
+
+    .button {
+        padding: 0 10px;
+        height: 28px;
+        font-size: 12px;
+        margin-top: 250px;
+    }
+
+    .loseTitle{
+        font-size: 14px;
+    }
+}
+
 
