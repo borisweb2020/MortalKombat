@@ -85,7 +85,7 @@ function playerWin(name){
 	const $winTitle = createElement('div', 'loseTitle');
 
 	if(name){
-		$winTitle.textContent = name + ' win';
+		$winTitle.textContent = name + ' wins';
 	} else {
 		$winTitle.textContent = 'draw';
 	}
