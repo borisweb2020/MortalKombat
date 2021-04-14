@@ -104,24 +104,6 @@ function playerWin(name){
 }
 
 
-function createReloadButton(){
-	const $div_reloadWrap  = createElement('div', 'reload_wrap');
-	$div_reloadWrap.hidden = true;
-	const $button          = createElement('button', 'button');
-	$button.textContent    = 'restart';
-	
-	$div_reloadWrap.appendChild($button);
-
-	return $div_reloadWrap;
-}
-
-const $reloadButton = $arenas.appendChild(createReloadButton());
-
-$reloadButton.addEventListener('click', function(){
-	window.location.reload();
-});
-
-
 
 $randomButton.addEventListener('click', function() {
 	player1.changeHP();
@@ -147,6 +129,24 @@ $randomButton.addEventListener('click', function() {
 		$arenas.appendChild(playerWin());
 
 	}
+});
+
+
+function createReloadButton(){
+	const $div_reloadWrap  = createElement('div', 'reload_wrap');
+	$div_reloadWrap.hidden = true;
+	const $button          = createElement('button', 'button');
+	$button.textContent    = 'restart';
+	
+	$div_reloadWrap.appendChild($button);
+
+	return $div_reloadWrap;
+}
+
+const $reloadButton = $arenas.appendChild(createReloadButton());
+
+$reloadButton.addEventListener('click', function(){
+	window.location.reload();
 });
 
 

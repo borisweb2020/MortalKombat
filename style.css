@@ -38,30 +38,27 @@ body {
     background: #424466;
 }
 
-.wall-left {
+.wall-left,
+.wall-right{
     position: absolute;
     width: 87px;
-    background: url(assets/wall-left.png);
     height: 100vh;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     top: 0;
     z-index: 100;
-    left: 50%;
+}
+
+.wall-left {
+    background-image: url(assets/wall-left.png);
     transform: translate(-450px, 0px);
+    left: 50%;
 }
 
 .wall-right {
-    position: absolute;
-    width: 87px;
-    background: url(./assets/wall-right.png);
-    height: 100vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    top: 0;
-    z-index: 100;
-    right: 50%;
+    background-image: url(./assets/wall-right.png);
     transform: translate(450px, 0px);
+    right: 50%;
 }
 
 .arenas {
@@ -293,12 +290,10 @@ body {
 @media(max-width: 767.98px){
 
     .wall-left {
-        width: 87px;
         transform: translate(-260px, 0px);
     }
 
     .wall-right {
-        width: 87px;
         transform: translate(260px, 0px);
     }
 
@@ -369,6 +364,63 @@ body {
 
     .loseTitle{
         font-size: 14px;
+    }
+}
+
+@media(max-width: 375.98px){
+
+    .wall-left {
+        transform: translate(-225px, 0px);
+    }
+
+    .wall-right {
+       transform: translate(245px, 0px);
+    }
+
+    .arenas{
+        width: 355px;
+        justify-content: space-between;
+    }
+
+    .player1,
+    .player2 {
+        width: 45%;
+    }
+
+    .character {
+        height: 190px;
+    }
+
+    .player1 .character {
+        left: 10px;
+    }
+
+    .player2 .character {
+        right: 10px;
+    }
+
+    .progressbar {
+        width: 150px;
+    }
+
+    .player2 .progressbar {
+        right: 20px;
+    }
+
+    
+    .chat {
+        width: 355px;
+    }
+
+    .control {
+       width: 100px;
+    }
+
+    .button {
+        padding: 0 10px;
+        height: 28px;
+        font-size: 12px;
+        margin-top: 350px;
     }
 }
 
