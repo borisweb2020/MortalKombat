@@ -7,6 +7,9 @@ const player1 = {
 	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
 	weapon: ['sword', 'harpoon', 'star'],
+	changeHP: changeHP,
+	elHP: elHP,
+	renderHP: renderHP,
 	attack: function(){
 		console.log('Fight...')
 	}
@@ -18,6 +21,9 @@ const player2 = {
 	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
 	weapon: ['sword', 'harpoon', 'star'],
+	changeHP: changeHP,
+	elHP: elHP,
+	renderHP: renderHP,
 	attack: function(){
 		console.log('Fight...')
 	}
@@ -67,19 +73,23 @@ function createPlayer(player_obj){
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
 
-function changeHP(player){
-	const $playerLife = document.querySelector('.player' + player.player + ' .life');
-	player.hp -= Math.ceil(Math.random() * 20);
-		
-		if(player.hp <= 0){
+function changeHP(){
+	this.hp -= Math.ceil(Math.random() * 20);
 
-			player.hp = 0;
-		}
-
-		$playerLife.style.width = player.hp + '%';
-
+	if(this.hp <= 0){
+		this.hp = 0;
+	}
 }
 
+function elHP(){
+	const $playerLife = document.querySelector('.player' + this.player + ' .life');
+	return $playerLife;
+}
+
+function renderHP(){
+	const $thisPlayerLife       = this.elHP();
+	$thisPlayerLife.style.width = this.hp + '%';
+}
 
 function playerWin(name){
 	const $winTitle = createElement('div', 'loseTitle');
@@ -93,12 +103,17 @@ function playerWin(name){
 	return $winTitle;
 }
 
+
+
 $randomButton.addEventListener('click', function() {
-	changeHP(player1);
-	changeHP(player2);
+	player1.changeHP();
+	player2.changeHP();
+	player1.renderHP();
+	player2.renderHP();
 
 	if(player1.hp === 0 || player2.hp === 0){
 		$randomButton.disabled = true;
+		$reloadButton.hidden   = false;
 	}
 
 	if(player1.hp === 0 && player1.hp < player2.hp){
@@ -115,6 +130,27 @@ $randomButton.addEventListener('click', function() {
 
 	}
 });
+
+
+function createReloadButton(){
+	const $div_reloadWrap  = createElement('div', 'reload_wrap');
+	$div_reloadWrap.hidden = true;
+	const $button          = createElement('button', 'button');
+	$button.textContent    = 'restart';
+	
+	$div_reloadWrap.appendChild($button);
+
+	return $div_reloadWrap;
+}
+
+const $reloadButton = $arenas.appendChild(createReloadButton());
+
+$reloadButton.addEventListener('click', function(){
+	window.location.reload();
+});
+
+
+
 
 
 
