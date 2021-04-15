@@ -103,6 +103,19 @@ function playerWin(name){
 	return $winTitle;
 }
 
+function createReloadButton(){
+	const $div_reloadWrap     = createElement('div', 'reload_wrap');
+	const $reloadButton       = createElement('button', 'button');
+	$reloadButton.textContent = 'restart';
+
+	$reloadButton.addEventListener('click', function(){
+		window.location.reload();
+	});
+
+
+	$div_reloadWrap.appendChild($reloadButton);
+	$arenas.appendChild($div_reloadWrap);
+}
 
 
 $randomButton.addEventListener('click', function() {
@@ -113,7 +126,7 @@ $randomButton.addEventListener('click', function() {
 
 	if(player1.hp === 0 || player2.hp === 0){
 		$randomButton.disabled = true;
-		$reloadButton.hidden   = false;
+		createReloadButton();
 	}
 
 	if(player1.hp === 0 && player1.hp < player2.hp){
@@ -132,22 +145,9 @@ $randomButton.addEventListener('click', function() {
 });
 
 
-function createReloadButton(){
-	const $div_reloadWrap  = createElement('div', 'reload_wrap');
-	$div_reloadWrap.hidden = true;
-	const $button          = createElement('button', 'button');
-	$button.textContent    = 'restart';
-	
-	$div_reloadWrap.appendChild($button);
 
-	return $div_reloadWrap;
-}
 
-const $reloadButton = $arenas.appendChild(createReloadButton());
 
-$reloadButton.addEventListener('click', function(){
-	window.location.reload();
-});
 
 
 
