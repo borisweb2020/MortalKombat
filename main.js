@@ -166,27 +166,16 @@ $formFight.addEventListener('submit', function(event){
 		item.checked = false;
 	}
 
-	if(enemy.hit !== attack.defence && attack.hit !== enemy.defence){
-		player1.changeHP(enemy.value);
+	
+	if(attack.defence !== enemy.hit){
 		player2.changeHP(attack.value);
-		
-	} else if(enemy.hit === attack.defence && attack.hit === enemy.defence){
-		player1.changeHP(0);
-		player2.changeHP(0);
-
-	} else if(enemy.hit === attack.defence){
-
-		player1.changeHP(enemy.value);
-		player2.changeHP(0);
-
-	} else if(attack.hit === enemy.defence){
-
-		player1.changeHP(0);
-		player2.changeHP(attack.value);
+		player2.renderHP();
 	}
 
-	player1.renderHP();
-	player2.renderHP();
+	if(enemy.defence !== attack.hit){
+		player1.changeHP(enemy.value);
+		player1.renderHP();
+	}
 
 
 	if(player1.hp === 0 || player2.hp === 0){
