@@ -391,6 +391,7 @@ input[type=radio]:checked + label > span:hover {
 
     .arenas{
         width: 425px;
+        justify-content: space-between;
     }
 
     .player1,
@@ -419,11 +420,11 @@ input[type=radio]:checked + label > span:hover {
     }
 
     .player1 .progressbar {
-        left: 10px;
+        left: 20px;
     }
 
     .player2 .progressbar {
-        right: 10px;
+        right: 40px;
     }
 
     .name {
@@ -445,6 +446,7 @@ input[type=radio]:checked + label > span:hover {
 
     .control {
        width: 135px;
+       font-size: 14px;
     }
 
     .button {
@@ -456,6 +458,23 @@ input[type=radio]:checked + label > span:hover {
 
     .loseTitle{
         font-size: 14px;
+    }
+
+    .inputWrap{
+        width: 215px;
+    }
+
+    .ul label span{
+        width: 50px;
+    }
+
+    .ul{
+        height: 45px;
+    }
+
+    .ul label span::before{
+        width: 50px;
+        height: 45px;
     }
 }
 
