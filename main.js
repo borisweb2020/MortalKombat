@@ -1,6 +1,6 @@
-const $arenas       = document.querySelector('.arenas');
-const $formFight    = document.querySelector('.control');
-const $chat         = document.querySelector('.chat');
+const $arenas    = document.querySelector('.arenas');
+const $formFight = document.querySelector('.control');
+const $chat      = document.querySelector('.chat');
 
 const logs = {
     start: 'Часы показывали [time], когда [player1] и [player2] бросили вызов друг другу.',
@@ -42,6 +42,7 @@ const logs = {
     draw: 'Ничья - это тоже победа!'
 };
 
+
 const player1 = {
 	player: 1,
 	name: 'Scorpion',
@@ -55,6 +56,8 @@ const player1 = {
 		console.log('Fight...')
 	}
 }
+
+
 
 const player2 = {
 	player: 2,
@@ -70,6 +73,7 @@ const player2 = {
 	}
 }
 
+
 // a random strike
 const HIT = {
 	head: 30,
@@ -79,6 +83,13 @@ const HIT = {
 
 // creating an enemy attack
 const ATTACK = ['head', 'body', 'foot'];
+
+function greet(player1, player2){
+	const text = logs.start.replace('[time]', currentTime()).replace('[player1]', player1.name).replace('[player2]', player2.name);
+	const el = `<p>${text}</p>`;
+	
+	$chat.insertAdjacentHTML('afterbegin', el);
+}
 
 
 function createElement(tag, className){
@@ -171,6 +182,8 @@ function createReloadButton(){
 }
 
 
+greet(player1, player2);
+
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
 
@@ -229,11 +242,22 @@ function showReasult(){
 
 function generateLogs(type, player1, player2){
 
-	const text = logs[type][0].replace('[playerKick]', player1.name).replace('[playerDefence]', player2.name);
+	let i = getRandom(type.length - 1);
+
+	const text = logs[type][5].replace('[playerKick]', player1.name).replace('[playerDefence]', player2.name);
 	
 	const el = `<p> ${text} </p>`;
 	$chat.insertAdjacentHTML('afterbegin', el);
 }
+
+function currentTime(){
+	const date = new Date();
+	return date.getHours() + ':' + date.getMinutes();
+}
+
+
+
+
 
 $formFight.addEventListener('submit', function(event){
 	event.preventDefault();
@@ -262,6 +286,8 @@ $formFight.addEventListener('submit', function(event){
 	console.log('enemy: ' + player1.hp, 'player: ' + player2.hp);
 
 });
+
+
 
 
 
