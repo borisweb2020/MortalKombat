@@ -36,6 +36,8 @@ body {
     align-items: center;
     position: relative;
     background: #424466;
+
+    overflow-x: hidden;
 }
 
 .wall-left,
@@ -167,10 +169,15 @@ body {
 .chat {
     width: 786px;
     height: 30vh;
-    background: url(./assets/versus.png);
+    background: url(assets/versus.png);
     background-size: cover;
     background-position: center;
     border-top: 4px solid #f5d100;
+
+    padding: 6px 40px;
+    overflow: scroll;
+    color: white;
+    font-family: Arial;
 }
 
 .character {
@@ -189,11 +196,16 @@ body {
 }
 
 .player2 .character img {
-    transform: scaleX(-1);
+    transform: scaleX(-1) translate(50%, 0);
 }
 
 .character img {
     height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .fight {
@@ -201,6 +213,9 @@ body {
     z-index: 100;
     top: 20%;
     width: 300px;
+
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .fight img {
@@ -442,6 +457,7 @@ input[type=radio]:checked + label > span:hover {
 
     .chat {
         width: 425px;
+        font-size: 12px;
     }
 
     .control {
