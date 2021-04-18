@@ -52,6 +52,7 @@ const player1 = {
 	changeHP,
 	elHP,
 	renderHP,
+	generateLog,
 	attack: function(){
 		console.log('Fight...')
 	}
@@ -68,6 +69,7 @@ const player2 = {
 	changeHP,
 	elHP,
 	renderHP,
+	generateLog,
 	attack: function(){
 		console.log('Fight...')
 	}
@@ -228,35 +230,63 @@ function showReasult(){
 	if(player1.hp === 0 && player1.hp < player2.hp){
 
 		$arenas.appendChild(playerWin(player2.name));
+		generateLogResult(player2.name, player1.name);
 
 	} else if(player2.hp === 0 && player2.hp < player1.hp){
 
 		$arenas.appendChild(playerWin(player1.name));
+		generateLogResult(player1.name, player2.name);
 
 	} else if(player1.hp === 0 && player2.hp === 0){
 
 		$arenas.appendChild(playerWin());
-
+		const el = `<p> ${logs.draw} </p>`;
+		$chat.insertAdjacentHTML('afterbegin', el);
 	}
 }
 
-function generateLogs(type, player1, player2){
+function generateLog(type, damage, enemy){
+	let i = getRandom(logs[type].length - 1);
+	let text;
+	let el;
 
-	let i = getRandom(type.length - 1);
+	switch(type){
+		case 'hit':
+			text = logs['hit'][i].replace('[playerDefence]', this.name).replace('[playerKick]', enemy.name);
+			el   = `<p> ${currentTime()} ${text} -${damage} [${this.hp}/100]</p>`;
+			break;
+		case 'defence':
+			text = logs['defence'][i].replace('[playerKick]', enemy.name).replace('[playerDefence]', this.name);
+			el   = `<p> ${currentTime()} ${text} </p>`;
+			break;
+	}
 
-	const text = logs[type][5].replace('[playerKick]', player1.name).replace('[playerDefence]', player2.name);
-	
-	const el = `<p> ${text} </p>`;
 	$chat.insertAdjacentHTML('afterbegin', el);
 }
 
-function currentTime(){
-	const date = new Date();
-	return date.getHours() + ':' + date.getMinutes();
+function generateLogResult(name1, name2){
+	let i      = getRandom(logs['end'].length - 1);
+	const text = logs['end'][i].replace('[playerWins]', name1).replace('[playerLose]', name2);
+	const el   = `<p> ${text} </p>`;
+	$chat.insertAdjacentHTML('afterbegin', el);
 }
 
 
+function currentTime(){
+	const date  = new Date();
+	let hours   = (date.getHours()).toString();
+	let minutes = (date.getMinutes()).toString();
 
+	if(hours.length < 2){
+		hours = '0' + hours;
+	}
+
+	if(minutes.length < 2){
+		minutes = '0' + minutes;
+	}
+
+	return hours + ':' + minutes;
+}
 
 
 $formFight.addEventListener('submit', function(event){
@@ -269,13 +299,17 @@ $formFight.addEventListener('submit', function(event){
 	if(player.defence !== enemy.hit){
 		player2.changeHP(player.value);
 		player2.renderHP();
-		generateLogs('hit', player1, player2);
+		player2.generateLog('hit', player.value, player1);
+	} else {
+		player2.generateLog('defence', '', player1);
 	}
 
 	if(enemy.defence !== player.hit){
 		player1.changeHP(enemy.value);
 		player1.renderHP();
-		generateLogs('hit', player2, player1);
+		player1.generateLog('hit', enemy.value, player2);
+	} else {
+		player1.generateLog('defence', '', player2);
 	}
 
 
