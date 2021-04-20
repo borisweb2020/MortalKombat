@@ -8,4 +8,5 @@
 	<li>the home work of the third lesson - pointing the winner between two players by main.js // <i>Apr 11, 2021</i> </li>
 	<li>the home work of the fourth lesson - adding three methods in the objects // <i>Apr 14, 2021</i> </li>
 	<li>the home work of the fifth lesson - creating a random strike and defence by using the form elements // <i>Apr 15, 2021</i> </li>
+	<li>the home work of the sixth lesson - filling a log of fight pointing a current time, a value of players hp // <i>Apr 18, 2021</i> </li>
 </ul>
