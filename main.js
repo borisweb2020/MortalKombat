@@ -1,3 +1,6 @@
+import {newPlayer1} from './player.js';
+import getRandom from './utils.js';
+
 const $arenas    = document.querySelector('.arenas');
 const $formFight = document.querySelector('.control');
 const $chat      = document.querySelector('.chat');
@@ -41,6 +44,8 @@ const logs = {
     ],
     draw: 'Ничья - это тоже победа!'
 };
+
+console.log(newPlayer1);
 
 
 const player1 = {
@@ -133,10 +138,10 @@ function createPlayer(player_obj){
 	return $div_player
 }
 
-function getRandom(maxValue){
-	const result = Math.ceil(Math.random() * maxValue);
-	return result ;
-}
+// function getRandom(maxValue){
+// 	const result = Math.ceil(Math.random() * maxValue);
+// 	return result ;
+// }
 
 function changeHP(arg){
 	this.hp -= arg;
