@@ -75,7 +75,6 @@ const player2 = {
 	}
 }
 
-
 // a random strike
 const HIT = {
 	head: 30,
