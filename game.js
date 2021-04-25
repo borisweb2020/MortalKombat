@@ -9,13 +9,14 @@ import {playerAttack} from './playerAction.js';
 
 import {showReasult} from './gameResult.js';
 
-const {$arenas, logs, $chat, $formFight} = variables;
+const {logs, $chat, $formFight} = variables;
 
 const player1 = new Player({
 	player: 1,
 	name: 'Scorpion',
 	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
+	rootSelector: 'arenas',
 });
 
 const player2 = new Player({
@@ -23,12 +24,17 @@ const player2 = new Player({
 	name: 'Kitana',
 	hp: 100,
 	img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
+	rootSelector: 'arenas',
 });
+
 
 export default class Game {
 
 
 	start = () => {
+
+		player1.createPlayer();
+		player2.createPlayer();
 
 		function greet(player1, player2){
 			const text = logs.start.replace('[time]', currentTime())
@@ -41,39 +47,6 @@ export default class Game {
 		}
 
 		greet(player1, player2);
-
-		function createPlayer({player, hp, name, img}){
-	
-			const $div_player = createElement('div', `player${player}`);
-
-			const $div_progressbar = createElement('div', 'progressbar');
-			
-			const $div_life = createElement('div', 'life');
-			$div_life.style.width = hp + '%';
-
-			const $div_name = createElement('div', 'name');
-			$div_name.textContent = name;
-
-			const $div_character = createElement('div', 'character');
-			
-			const $img = createElement('img');
-			$img.src   = img;
-			
-
-			$div_character.appendChild($img);
-			
-			$div_progressbar.appendChild($div_name);
-			$div_progressbar.appendChild($div_life);
-
-			$div_player.appendChild($div_character);
-			$div_player.appendChild($div_progressbar);
-			       
-			return $div_player
-		}
-
-		$arenas.appendChild(createPlayer(player1));
-		$arenas.appendChild(createPlayer(player2));
-
 
 		$formFight.addEventListener('submit', event => {
 			event.preventDefault();
@@ -99,7 +72,7 @@ export default class Game {
 			}
 
 
-			showReasult();
+			showReasult(player1, player2);
 
 			console.log('enemy:', valueEnemy, hitEnemy, defenceEnemy);
 			console.log('player:', value, hit, defence);

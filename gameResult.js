@@ -1,5 +1,3 @@
-import Player from './player.js';
-
 import {playerWin} from './utils.js';
 import {createElement} from './utils.js';
 import {getRandom} from './utils.js';
@@ -7,21 +5,6 @@ import {getRandom} from './utils.js';
 import * as variables from './variables.js';
 
 const {$arenas, $formFight, $chat, logs} = variables;
-
-const player1 = new Player({
-	player: 1,
-	name: 'Scorpion',
-	hp: 100,
-	img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
-});
-
-const player2 = new Player({
-	player: 2,
-	name: 'Kitana',
-	hp: 100,
-	img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
-});
-
 
 function createReloadButton(){
 	const $div_reloadWrap     = createElement('div', 'reload_wrap');
@@ -37,7 +20,7 @@ function createReloadButton(){
 	$arenas.appendChild($div_reloadWrap);
 }
 
-export function showReasult(){
+export function showReasult(player1, player2){
 	if(player1.hp === 0 || player2.hp === 0){
 		$formFight.style.display = 'none';
 		createReloadButton();
@@ -65,7 +48,9 @@ export function showReasult(){
 
 function generateLogResult(name1, name2){
 	let i      = getRandom(logs['end'].length - 1);
-	const text = logs['end'][i].replace('[playerWins]', name1).replace('[playerLose]', name2);
+	const text = logs['end'][i].replace('[playerWins]', name1)
+	.replace('[playerLose]', name2);
+
 	const el   = `<p> ${text} </p>`;
 	$chat.insertAdjacentHTML('afterbegin', el);
 }

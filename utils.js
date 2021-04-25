@@ -15,13 +15,13 @@ export function currentTime(){
 }
 
 
-export function getRandom(maxValue){
+export const getRandom = maxValue => {
 	const result = Math.ceil(Math.random() * maxValue);
 	return result ;
 }
 
 
-export function playerWin(name){
+export const playerWin = name => {
 	const $winTitle = createElement('div', 'loseTitle');
 
 	if(name){
@@ -42,3 +42,4 @@ export function createElement(tag, className){
 
 	return $tag;
 }
+
