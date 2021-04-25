@@ -24,22 +24,22 @@ function greet(player1, player2){
 }
 
 
-function createPlayer(player_obj){
+function createPlayer({player, hp, name, img}){
 	
-	const $div_player = createElement('div', 'player' + player_obj.player);
+	const $div_player = createElement('div', `player${player}`);
 
 	const $div_progressbar = createElement('div', 'progressbar');
 	
 	const $div_life = createElement('div', 'life');
-	$div_life.style.width = player_obj.hp + '%';
+	$div_life.style.width = hp + '%';
 
 	const $div_name = createElement('div', 'name');
-	$div_name.textContent = player_obj.name;
+	$div_name.textContent = name;
 
 	const $div_character = createElement('div', 'character');
 	
 	const $img = createElement('img');
-	$img.src   = player_obj.img;
+	$img.src   = img;
 	
 
 	$div_character.appendChild($img);
@@ -62,22 +62,22 @@ $arenas.appendChild(createPlayer(player2));
 $formFight.addEventListener('submit', event => {
 	event.preventDefault();
 
-	const enemy  = enemyAttack();
-	const player = playerAttack();
+	const {value: valueEnemy, hit: hitEnemy, defence: defenceEnemy}  = enemyAttack();
+	const {value, hit, defence} = playerAttack();
 
 	
-	if(player.defence !== enemy.hit){
-		player2.changeHP(player.value);
+	if(defence !== hitEnemy){
+		player2.changeHP(value);
 		player2.renderHP();
-		player2.generateLog('hit', player.value, player1);
+		player2.generateLog('hit', value, player1);
 	} else {
 		player2.generateLog('defence', '', player1);
 	}
 
-	if(enemy.defence !== player.hit){
-		player1.changeHP(enemy.value);
+	if(defenceEnemy !== hit){
+		player1.changeHP(valueEnemy);
 		player1.renderHP();
-		player1.generateLog('hit', enemy.value, player2);
+		player1.generateLog('hit', valueEnemy, player2);
 	} else {
 		player1.generateLog('defence', '', player2);
 	}
@@ -85,15 +85,11 @@ $formFight.addEventListener('submit', event => {
 
 	showReasult();
 
-	console.log('enemy:', enemy);
-	console.log('player:', player);
+	console.log('enemy:', valueEnemy, hitEnemy, defenceEnemy);
+	console.log('player:', value, hit, defence);
 	console.log('enemy: ' + player1.hp, 'player: ' + player2.hp);
 
 });
-
-
-
-
 
 
 
