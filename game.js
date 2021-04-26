@@ -11,27 +11,28 @@ import {showReasult} from './gameResult.js';
 
 const {logs, $chat, $formFight} = variables;
 
-const player1 = new Player({
-	player: 1,
-	name: 'Scorpion',
-	hp: 100,
-	img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
-	rootSelector: 'arenas',
-});
-
-const player2 = new Player({
-	player: 2,
-	name: 'Kitana',
-	hp: 100,
-	img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
-	rootSelector: 'arenas',
-});
 
 
 export default class Game {
 
-
+	
 	start = () => {
+
+		let player1 = new Player({
+			player: 1,
+			name: 'Scorpion',
+			hp: 100,
+			img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
+			rootSelector: 'arenas',
+		});
+
+		let player2 = new Player({
+			player: 2,
+			name: 'Kitana',
+			hp: 100,
+			img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
+			rootSelector: 'arenas',
+		});
 
 		player1.createPlayer();
 		player2.createPlayer();
