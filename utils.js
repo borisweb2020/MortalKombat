@@ -20,6 +20,11 @@ export const getRandom = maxValue => {
 	return result ;
 }
 
+export const getRandomFloor = maxValue => {
+	const result = Math.floor(Math.random() * maxValue);
+	return result ;
+}
+
 
 export const playerWin = name => {
 	const $winTitle = createElement('div', 'loseTitle');
@@ -42,4 +47,5 @@ export function createElement(tag, className){
 
 	return $tag;
 }
+
 

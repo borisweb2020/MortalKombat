@@ -2,6 +2,8 @@ import {getRandom} from './utils.js';
 import {currentTime} from './utils.js';
 import {createElement} from './utils.js';
 
+import {getTextLog} from './gameResult.js';
+
 import * as variables from './variables.js';
 
 const {$chat, logs} = variables;
@@ -33,21 +35,18 @@ export default class Player {
 		$thisPlayerLife.style.width = this.hp + '%';
 	}
 
-	generateLog = (type, damage, enemy) => {
-		let i = getRandom((logs[type].length - 1) - 1);
-		let text;
+
+
+	generateLog = (type, player1, player2) => {
 		let el;
 
 		switch(type){
 			case 'hit':
-				text = logs['hit'][i]
-				.replace('[playerDefence]', this.name)
-				.replace('[playerKick]', enemy.name);
-				el   = `<p> ${currentTime()} ${text} -${damage} [${this.hp}/100]</p>`;
+				el = `<p>${currentTime()} ${getTextLog('hit', player1, player2)} [${player1.hp}/100]</p>`;
 				break;
+
 			case 'defence':
-				text = logs['defence'][i].replace('[playerKick]', enemy.name).replace('[playerDefence]', this.name);
-				el   = `<p> ${currentTime()} ${text} </p>`;
+				el = `<p>${currentTime()} ${getTextLog('defence', player1, player2)}</p>`;
 				break;
 		}
 
@@ -91,6 +90,8 @@ export default class Player {
 		console.log('Fight ...');
 	}
 }
+
+
 
 
 

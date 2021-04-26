@@ -1,6 +1,8 @@
 import {playerWin} from './utils.js';
 import {createElement} from './utils.js';
 import {getRandom} from './utils.js';
+import {getRandomFloor} from './utils.js';
+import {currentTime} from './utils.js';
 
 import * as variables from './variables.js';
 
@@ -44,7 +46,35 @@ export function showReasult(player1, player2){
 	}
 }
 
-
+export function getTextLog(type, playerName1, playerName2){
+	let i = getRandomFloor(logs[type].length);
+    let text;
+    
+    switch(type){
+        case 'start':
+            return text = logs.start.replace('[time]', currentTime())
+                .replace('[player1]', playerName1.name)
+                .replace('[player2]', playerName2.name);
+            
+        case 'hit':
+        	return text = logs['hit'][i]
+        		.replace('[playerKick]', playerName1.name)
+        		.replace('[playerDefence]', playerName2.name);
+            
+        case 'defence':
+        	return text = logs['defence'][i]
+        		.replace('[playerKick]', playerName1.name)
+        		.replace('[playerDefence]', playerName2.name);
+        	
+        case 'end':
+        	return text = logs['end'][i]
+        		.replace('[playerWins]', playerName1.name)
+        		.replace('[playerLose]', playerName2.name);
+        	
+        case 'draw':
+        	return text = logs.draw;
+    }
+}
 
 function generateLogResult(name1, name2){
 	let i      = getRandom(logs['end'].length - 1);
