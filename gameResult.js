@@ -1,6 +1,3 @@
-import {player1} from './player.js';
-import {player2} from './player.js';
-
 import {playerWin} from './utils.js';
 import {createElement} from './utils.js';
 import {getRandom} from './utils.js';
@@ -8,7 +5,6 @@ import {getRandom} from './utils.js';
 import * as variables from './variables.js';
 
 const {$arenas, $formFight, $chat, logs} = variables;
-
 
 function createReloadButton(){
 	const $div_reloadWrap     = createElement('div', 'reload_wrap');
@@ -24,7 +20,7 @@ function createReloadButton(){
 	$arenas.appendChild($div_reloadWrap);
 }
 
-export function showReasult(){
+export function showReasult(player1, player2){
 	if(player1.hp === 0 || player2.hp === 0){
 		$formFight.style.display = 'none';
 		createReloadButton();
@@ -52,7 +48,9 @@ export function showReasult(){
 
 function generateLogResult(name1, name2){
 	let i      = getRandom(logs['end'].length - 1);
-	const text = logs['end'][i].replace('[playerWins]', name1).replace('[playerLose]', name2);
+	const text = logs['end'][i].replace('[playerWins]', name1)
+	.replace('[playerLose]', name2);
+
 	const el   = `<p> ${text} </p>`;
 	$chat.insertAdjacentHTML('afterbegin', el);
 }
