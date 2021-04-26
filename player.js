@@ -34,13 +34,15 @@ export default class Player {
 	}
 
 	generateLog = (type, damage, enemy) => {
-		let i = getRandom(logs[type].length - 1);
+		let i = getRandom((logs[type].length - 1) - 1);
 		let text;
 		let el;
 
 		switch(type){
 			case 'hit':
-				text = logs['hit'][i].replace('[playerDefence]', this.name).replace('[playerKick]', enemy.name);
+				text = logs['hit'][i]
+				.replace('[playerDefence]', this.name)
+				.replace('[playerKick]', enemy.name);
 				el   = `<p> ${currentTime()} ${text} -${damage} [${this.hp}/100]</p>`;
 				break;
 			case 'defence':
