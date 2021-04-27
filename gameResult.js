@@ -31,17 +31,17 @@ export function showReasult(player1, player2){
 	if(player1.hp === 0 && player1.hp < player2.hp){
 
 		$arenas.appendChild(playerWin(player2.name));
-		generateLogResult(player2.name, player1.name);
+		generateLogResult(player2, player1);
 
 	} else if(player2.hp === 0 && player2.hp < player1.hp){
 
 		$arenas.appendChild(playerWin(player1.name));
-		generateLogResult(player1.name, player2.name);
+		generateLogResult(player1, player2);
 
 	} else if(player1.hp === 0 && player2.hp === 0){
 
 		$arenas.appendChild(playerWin());
-		const el = `<p> ${logs.draw} </p>`;
+		const el = `<p> ${getTextLog('draw')} </p>`;
 		$chat.insertAdjacentHTML('afterbegin', el);
 	}
 }
@@ -76,11 +76,8 @@ export function getTextLog(type, playerName1, playerName2){
     }
 }
 
-function generateLogResult(name1, name2){
-	let i      = getRandom(logs['end'].length - 1);
-	const text = logs['end'][i].replace('[playerWins]', name1)
-	.replace('[playerLose]', name2);
-
-	const el   = `<p> ${text} </p>`;
+function generateLogResult(player1, player2){
+	
+	const el = `<p> ${getTextLog('end', player1, player2)} </p>`;
 	$chat.insertAdjacentHTML('afterbegin', el);
 }

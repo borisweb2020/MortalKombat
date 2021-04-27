@@ -61,17 +61,17 @@ export default class Game {
 			if(defence !== hitEnemy){
 				player2.changeHP(value);
 				player2.renderHP();
-				player2.generateLog('hit', player1, player2);
+				player2.generateLog('hit', player1);
 			} else {
-				player2.generateLog('defence', player1, player2);
+				player2.generateLog('defence', player1);
 			}
 
 			if(defenceEnemy !== hit){
 				player1.changeHP(valueEnemy);
 				player1.renderHP();
-				player1.generateLog('hit', player2, player1);
+				player1.generateLog('hit', player2);
 			} else {
-				player1.generateLog('defence', player2, player1);
+				player1.generateLog('defence', player2);
 			}
 
 

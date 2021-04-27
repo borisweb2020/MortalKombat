@@ -37,16 +37,16 @@ export default class Player {
 
 
 
-	generateLog = (type, player1, player2) => {
+	generateLog = (type, enemy) => {
 		let el;
 
 		switch(type){
 			case 'hit':
-				el = `<p>${currentTime()} ${getTextLog('hit', player1, player2)} [${player1.hp}/100]</p>`;
+				el = `<p>${currentTime()} ${getTextLog('hit', enemy, this)} [${this.hp}/100]</p>`;
 				break;
 
 			case 'defence':
-				el = `<p>${currentTime()} ${getTextLog('defence', player1, player2)}</p>`;
+				el = `<p>${currentTime()} ${getTextLog('defence', enemy, this)}</p>`;
 				break;
 		}
 
