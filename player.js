@@ -37,12 +37,12 @@ export default class Player {
 
 
 
-	generateLog = (type, enemy) => {
+	generateLog = (type, enemy, damage) => {
 		let el;
 
 		switch(type){
 			case 'hit':
-				el = `<p>${currentTime()} ${getTextLog('hit', enemy, this)} [${this.hp}/100]</p>`;
+				el = `<p>${currentTime()} ${getTextLog('hit', enemy, this)} -${damage} [${this.hp}/100]</p>`;
 				break;
 
 			case 'defence':
