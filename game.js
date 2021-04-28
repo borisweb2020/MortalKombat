@@ -85,9 +85,6 @@ export default class Game {
 
 			showReasult(player1, player2);
 
-			console.log('player1:', valueEnemy, hitEnemy, defenceEnemy, 'hp:', player1.hp);
-			console.log('player2:', value, hit, defence, 'hp:', player2.hp);
-
 		});
 	
 
