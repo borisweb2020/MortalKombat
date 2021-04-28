@@ -14,7 +14,7 @@ function createReloadButton(){
 	$reloadButton.textContent = 'restart';
 
 	$reloadButton.addEventListener('click', () => {
-		window.location.reload();
+		window.location.pathname = 'index.html';
 	});
 
 

@@ -26,7 +26,8 @@ function createEmptyPlayerBlock() {
 }
 
 async function init() {
-    localStorage.removeItem('player1');
+    
+    localStorage.removeItem('player2');
 
     const players = await fetch('https://reactmarathon-api.herokuapp.com/api/mk/players').then(res => res.json());
 
@@ -59,13 +60,14 @@ async function init() {
             // При помощи localStorage.getItem('player1'); т.к. в localStorage кладется строка,
             // то мы должны ее распарсить обратным методом JSON.parse(localStorage.getItem('player1'));
             // но это уже будет в нашем классе Game когда мы инициализируем игроков.
-            localStorage.setItem('player1', JSON.stringify(item));
+            localStorage.setItem('player2', JSON.stringify(item));
 
             el.classList.add('active');
 
             setTimeout(() => {
                 // TODO: Здесь должен быть код который перенаправит вас на ваше игровое поле...
                 //  Пример использования: window.location.pathname = 'arenas.html';
+                window.location.pathname = 'arenas.html';
             }, 1000);
         });
 

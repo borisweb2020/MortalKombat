@@ -31,7 +31,7 @@ export default class Game {
 		const players = await this.getPlayers();
 
 		const p1 = players[getRandom(players.length) - 1];
-		const p2 = players[getRandom(players.length) - 1];
+		const p2 = JSON.parse(localStorage.getItem('player2'));
 
 		player1 = new Player({
 			...p1,
