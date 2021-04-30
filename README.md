@@ -11,4 +11,5 @@
 	<li>the home work of the sixth lesson - filling a log of fight pointing a current time, a value of players hp // <i>Apr 18, 2021</i> </li>
 	<li>the home work of the seventh lesson - adding arrow functions, modules and object destructuring // <i>Apr 21, 2021</i> </li>
 	<li>the home work of the eighth lesson - adding the classes Player & Game // <i>Apr 25, 2021</i> </li>
+	<li>the home work of the nineth lesson - adding the request to the server for choosing a player // <i>Apr 28, 2021</i> </li>
 </ul>
