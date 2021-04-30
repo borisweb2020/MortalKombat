@@ -17,6 +17,7 @@
 
 body {
     background-color: #424542;
+    margin: 0;
 }
 
 .root {
@@ -24,25 +25,23 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 30px;
-    min-height: 100vh;
-    min-width: 100vh;
+   
+    width: 100%;
     background-size: contain;
     background-position: center;
     position: relative;
+
+    padding-top: 10px;
 }
 
 .title {
-    position: absolute;
+    
     font-family: "Mortal Kombat 3";
     font-size: 48px;
-    color: #FFF;
-    top: 10px;
-    left: 50%;
     color: #efefef;
     text-shadow: 4px 2px 1px #000;
-    transform: translate(-50%, 0);
-    white-space: nowrap;
+    
+    margin-bottom: 20px;
 }
 
 .player {
@@ -106,10 +105,11 @@ body {
 }
 .character {
     width: 137px;
-    height: 176px;
+    height: 176px;   
     position: relative;
     z-index: 1;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .character:hover,
@@ -137,4 +137,75 @@ body {
 
 .character img {
     width: 100%;
+    height: 100%;
+}
+
+@media(max-width: 1025px){
+    .character{
+        width: 100px;
+        height: 128px;
+    }
+
+    .player {
+        width: 140px;
+        height: 245px;
+       
+        bottom: 44px;
+        left: 10%;
+        margin-left: 0;
+        transform: none;
+    }
+
+    .character:hover:before,
+    .character.active:before {
+       
+        border: 10px solid #21aa21;
+    }
+}
+
+@media(max-width: 769px){
+    .player {
+        width: 120px;
+        height: 210px;
+       
+        bottom: 14px;
+        left: 3%;
+        
+    }
+}
+
+@media(max-width: 426px){
+    .title{
+        font-size: 25px;
+    }
+
+    .character{
+        width: 50px;
+        height: 64px;
+    }
+
+    .player{
+        width: 70px;
+        height: 122px;
+    }
+
+    .character:hover:before,
+    .character.active:before {
+       
+        border: 5px solid #21aa21;
+    }
+}
+
+@media(max-width: 321px){
+    .character{
+        width: 45px;
+        height: 58px;
+    }
+
+    .player{
+        width: 60px;
+        height: 105px;
+        left: 0;
+        bottom: 4px;
+    }
 }
