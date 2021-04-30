@@ -14,26 +14,34 @@ import {getTextLog} from './gameResult.js';
 
 const {logs, $chat, $formFight} = variables;
 
+let player1;
+let player2;
 
 
 export default class Game {
 
+	getPlayers = async () => {
+		const body = fetch('https://reactmarathon-api.herokuapp.com/api/mk/players')
+						.then(response => response.json());
+		return body;
+	}
 	
-	start = () => {
+	start = async () => {
 
-		let player1 = new Player({
+		const players = await this.getPlayers();
+
+		const p1 = players[getRandom(players.length) - 1];
+		const p2 = JSON.parse(localStorage.getItem('player2'));
+
+		player1 = new Player({
+			...p1,
 			player: 1,
-			name: 'Scorpion',
-			hp: 100,
-			img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
 			rootSelector: 'arenas',
 		});
 
-		let player2 = new Player({
+		player2 = new Player({
+			...p2,
 			player: 2,
-			name: 'Kitana',
-			hp: 100,
-			img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
 			rootSelector: 'arenas',
 		});
 
@@ -76,9 +84,6 @@ export default class Game {
 
 
 			showReasult(player1, player2);
-
-			console.log('player1:', valueEnemy, hitEnemy, defenceEnemy, 'hp:', player1.hp);
-			console.log('player2:', value, hit, defence, 'hp:', player2.hp);
 
 		});
 	
