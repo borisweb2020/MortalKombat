@@ -12,7 +12,7 @@ import {showReasult} from './gameResult.js';
 import {getTextLog} from './gameResult.js';
 
 
-const {logs, $chat, $formFight} = variables;
+const {logs, $chat, $formFight, $radioHit, $radioDefence, $button} = variables;
 
 let player1;
 let player2;
@@ -57,6 +57,27 @@ export default class Game {
 
 		greet(player1, player2);
 
+		$radioHit.forEach(item => {
+			item.addEventListener('change', ()=>{
+				$radioDefence.forEach(item => {
+					if(item.checked){
+						$button.disabled = false;
+					}
+				});
+				
+			});
+		});
+
+		$radioDefence.forEach(item => {
+			item.addEventListener('change', ()=>{
+				$radioHit.forEach(item => {
+					if(item.checked){
+						$button.disabled = false;
+					}
+				});
+			});
+		});
+
 		
 
 		$formFight.addEventListener('submit', event => {
@@ -84,6 +105,7 @@ export default class Game {
 
 
 			showReasult(player1, player2);
+			$button.disabled = true;
 
 		});
 	

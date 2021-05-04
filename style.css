@@ -93,6 +93,7 @@ body {
     background-image: url(./assets/waterfront.png);
 }
 
+
 .player1,
 .player2 {
     width: 50%;
@@ -155,7 +156,7 @@ body {
     letter-spacing: 2px;
     color: #efefef;
     top: 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .player1 .name {
@@ -178,6 +179,24 @@ body {
     overflow: scroll;
     color: white;
     font-family: Arial;
+}
+
+.chat_time{
+    font-weight: 700;
+}
+
+.chat_player-1,
+.chat_player-2{
+    font-weight: 700;
+
+}
+
+.chat_player-1{
+    color: #ff0036;
+}
+
+.chat_player-2{
+    color: #5FC0CE;
 }
 
 .character {
@@ -233,6 +252,9 @@ body {
     align-items: center;
     flex-direction: column;
     z-index: 1000;
+
+    font-family: 'Mortal Kombat 3';
+    color: #efefef;
 }
 
 .button {
@@ -240,42 +262,32 @@ body {
     position: relative;
     padding: 0 16px;
     height: 36px;
-    color: white;
     font-size: 18px;
     text-transform: uppercase;
     background-color: #f5d100;
     border: none;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 4px;
-    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 5px;
     cursor: pointer;
-    font-family: "Mortal Kombat 3";
+    font-family: inherit;
+    color: inherit;
     outline: none;
+
+    box-shadow: 2px 4px #cd0e03;
 }
-.button::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 4px;
-    left: 0;
-    background-color: #cd0e03;
-    border-radius: 4px;
-    z-index: -1;
-}
+
 .button:hover {
     background-color: #f5d100;
 }
 .button:active {
-    top: 2px;
-}
-.button:active::after {
-    top: 1px;
+   
+    top: 4px;
+    left: 2px;
+    box-shadow: none;
 }
 
 .control .button:disabled{
-    opacity: .7;
+    opacity: .4;
 }
 
 .loseTitle {
@@ -296,13 +308,15 @@ body {
     z-index: 1000;
     left: 50%;
     transform: translate(-50%, 0%);
+    font-family: "Mortal Kombat 3";
+    color:  #efefef;
 }
 
 .reload_wrap .button {
     margin-top: 0;
 }
 
-form:invalid button[class=button] {
+/*form:invalid button[class=button] {
     opacity: .9;
     cursor: not-allowed;
 }
@@ -317,7 +331,7 @@ form:invalid button[class=button]:active {
 
 form:invalid button[class=button]:active::after {
     top: 4px;
-}
+}*/
 
 .inputWrap {
     position: relative;
@@ -333,8 +347,7 @@ form:invalid button[class=button]:active::after {
     text-align: center;
     margin: 0 auto 20px;
     font-weight: 700;
-    font-family: 'Mortal Kombat 3';
-    color: #efefef;
+    
     text-transform: uppercase;
 }
 
@@ -342,7 +355,6 @@ form:invalid button[class=button]:active::after {
     border: solid 3px #cd0e03;
     height: 50px;
     padding: 0 12px;
-    font-family: 'Mortal Kombat 3';
     display: flex;
     justify-content: space-between;
     color: #efefef;

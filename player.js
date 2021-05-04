@@ -64,7 +64,7 @@ export default class Player {
 			$div_life.style.width = this.hp + '%';
 
 			const $div_name = createElement('div', 'name');
-			$div_name.textContent = this.name;
+			$div_name.textContent = this.name.toLowerCase();
 
 			const $div_character = createElement('div', 'character');
 			
