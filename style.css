@@ -1,10 +1,6 @@
 @font-face {
     font-family: 'Mortal Kombat 3';
-    src: url('./assets/fonts/MortalKombat3-Regular.eot');
-    src: url('./assets/fonts/MortalKombat3-Regular.eot?#iefix') format('embedded-opentype'),
-    url('./assets/fonts/MortalKombat3-Regular.woff2') format('woff2'),
-    url('./assets/fonts/MortalKombat3-Regular.woff') format('woff'),
-    url('./assets/fonts/MortalKombat3-Regular.ttf') format('truetype');
+    src: url('./assets/fonts/MortalKombat3-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -181,9 +177,7 @@ body {
     font-family: Arial;
 }
 
-.chat_time{
-    font-weight: 700;
-}
+
 
 .chat_player-1,
 .chat_player-2{
@@ -264,7 +258,7 @@ body {
     height: 36px;
     font-size: 18px;
     text-transform: uppercase;
-    background-color: #f5d100;
+    background-color: #f45003;
     border: none;
     margin: 0 auto;
     border-radius: 5px;
@@ -273,22 +267,43 @@ body {
     color: inherit;
     outline: none;
 
-    box-shadow: 2px 4px #cd0e03;
+    animation-name: blinkButton;
+    animation-duration: .7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
 }
 
-.button:hover {
-    background-color: #f5d100;
+
+@keyframes blinkButton{
+    0% { box-shadow: 0 0 5px #f45003 }
+
+    15% { box-shadow: 0 0 5px #f45003,
+                      0 0 25px #f45003 }
+    30% { box-shadow: 0 0 5px #f45003,
+                      0 0 25px #f45003,
+                      0 0 50px #f45003 }
+    45% { box-shadow: 0 0 5px #f45003,
+                      0 0 25px #f45003,
+                      0 0 50px #f45003,
+                      0 0 200px #f45003 }
+    60% { box-shadow: 0 0 5px #f45003,
+                      0 0 25px #f45003,
+                      0 0 50px #f45003 }
+    85% { box-shadow: 0 0 5px #f45003,
+                      0 0 25px #f45003 }
+
+    100% { box-shadow: 0 0 5px #f45003 }
 }
-.button:active {
-   
-    top: 4px;
-    left: 2px;
-    box-shadow: none;
-}
+
+
 
 .control .button:disabled{
-    opacity: .4;
+    box-shadow: none;
+    opacity: 0.5;;
+    animation-play-state: paused;
 }
+
 
 .loseTitle {
     position: absolute;
@@ -316,22 +331,6 @@ body {
     margin-top: 0;
 }
 
-/*form:invalid button[class=button] {
-    opacity: .9;
-    cursor: not-allowed;
-}
-
-form:invalid button[class=button]:after {
-    opacity: .1;
-}
-
-form:invalid button[class=button]:active {
-    top: 0px;
-}
-
-form:invalid button[class=button]:active::after {
-    top: 4px;
-}*/
 
 .inputWrap {
     position: relative;

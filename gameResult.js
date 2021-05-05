@@ -52,7 +52,7 @@ export function getTextLog(type, playerName1, playerName2){
     
     switch(type){
         case 'start':
-            return text = logs.start.replace('[time]', `<span class="chat_time">${currentTime()}</span>`)
+            return text = logs.start.replace('[time]', currentTime())
                 .replace('[player1]', `<span class="chat_player-${playerName1.player}">${playerName1.name}</span>`)
                 .replace('[player2]', `<span class="chat_player-${playerName2.player}">${playerName2.name}</span>`);
             
