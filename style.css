@@ -54,7 +54,7 @@ body {
 }
 
 .wall-right {
-    background-image: url(./assets/wall-right.png);
+    background-image: url(assets/wall-right.png);
     transform: translate(450px, 0px);
     right: 50%;
 }
@@ -70,23 +70,23 @@ body {
 }
 
 .arenas.arena1 {
-    background-image: url(./assets/scorpions-lair-arenas.png);
+    background-image: url(assets/scorpions-lair-arenas.png);
 }
 
 .arenas.arena2 {
-    background-image: url(./assets/the-cave.png);
+    background-image: url(assets/the-cave.png);
 }
 
 .arenas.arena3 {
-    background-image: url(./assets/jade-s-desert.png);
+    background-image: url(assets/jade-s-desert.png);
 }
 
 .arenas.arena4 {
-    background-image: url(./assets/scislac-busorez.png);
+    background-image: url(assets/scislac-busorez.png);
 }
 
 .arenas.arena5 {
-    background-image: url(./assets/waterfront.png);
+    background-image: url(assets/waterfront.png);
 }
 
 

@@ -12,7 +12,7 @@ import {showReasult} from './gameResult.js';
 import {getTextLog} from './gameResult.js';
 
 
-const {logs, $chat, $formFight, $radioHit, $radioDefence, $button} = variables;
+const {logs, $chat, $formFight, $radioHit, $radioDefence, $button, $arenas} = variables;
 
 let player1;
 let player2;
@@ -47,6 +47,8 @@ export default class Game {
 
 		player1.createPlayer();
 		player2.createPlayer();
+
+		$arenas.classList.add(`arena${getRandom(5)}`);
 
 		function greet(player1, player2){
 			
