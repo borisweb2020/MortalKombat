@@ -1,20 +1,6 @@
-@font-face {
-    font-family: 'Mortal Kombat 3';
-    src: url('../assets/fonts/MortalKombat3-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
 
-*, *:before, *:after {
-    box-sizing: border-box;
-}
 
-body {
-    background-color: #424542;
-    margin: 0;
-}
 
 .root {
     display: flex;
