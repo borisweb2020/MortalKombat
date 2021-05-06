@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Mortal Kombat 3';
-    src: url('./assets/fonts/MortalKombat3-Regular.woff2') format('woff2');
+    src: url('../assets/fonts/MortalKombat3-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -48,13 +48,13 @@ body {
 }
 
 .wall-left {
-    background-image: url(assets/wall-left.png);
+    background-image: url(../assets/img/wall-left.png);
     transform: translate(-450px, 0px);
     left: 50%;
 }
 
 .wall-right {
-    background-image: url(assets/wall-right.png);
+    background-image: url(../assets/img/wall-right.png);
     transform: translate(450px, 0px);
     right: 50%;
 }
@@ -70,23 +70,23 @@ body {
 }
 
 .arenas.arena1 {
-    background-image: url(assets/scorpions-lair-arenas.png);
+    background-image: url(../assets/img/scorpions-lair-arenas.png);
 }
 
 .arenas.arena2 {
-    background-image: url(assets/the-cave.png);
+    background-image: url(../assets/img/the-cave.png);
 }
 
 .arenas.arena3 {
-    background-image: url(assets/jade-s-desert.png);
+    background-image: url(../assets/img/jade-s-desert.png);
 }
 
 .arenas.arena4 {
-    background-image: url(assets/scislac-busorez.png);
+    background-image: url(../assets/img/scislac-busorez.png);
 }
 
 .arenas.arena5 {
-    background-image: url(assets/waterfront.png);
+    background-image: url(../assets/img/waterfront.png);
 }
 
 
@@ -166,7 +166,7 @@ body {
 .chat {
     width: 786px;
     height: 30vh;
-    background: url(assets/versus.png);
+    background: url(../assets/img/versus.png);
     background-size: cover;
     background-position: center;
     border-top: 4px solid #f5d100;
@@ -174,7 +174,7 @@ body {
     padding: 6px 40px;
     overflow: scroll;
     color: white;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
 
