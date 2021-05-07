@@ -9,7 +9,7 @@ function turnOnAudio(){
 	$audio.autoplay = true;
 	$audio.loop = true;
 
-	$audio.play();
+	// $audio.play();
 }
 
 setTimeout(turnOnAudio, 1500);

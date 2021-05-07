@@ -88,6 +88,22 @@ p {
 	}
 }
 
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+    width: 100%;
+    position: relative;
+    
+}
+
+.root--arenas{
+	background-color: #424466;
+	overflow: hidden;
+}
+
 
 @media(max-width: 1025px){
 	.intro__link{
