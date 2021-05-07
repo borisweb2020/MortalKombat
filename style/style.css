@@ -104,6 +104,10 @@ p {
 	.intro__link{
 		bottom: 25%;
 	}
+
+	.intro__link:active{
+		bottom: calc(25% - 5px);
+	}
 }
 
 @media(max-width: 426px){

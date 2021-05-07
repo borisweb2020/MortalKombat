@@ -1,11 +1,16 @@
 const $audio = document.getElementById('audio');
 
+const getRandom = maxValue => {
+	return Math.floor(Math.random()*maxValue);
+}
 
+function turnOnAudio(){
+	$audio.src = `../assets/audio/title-screen/mk3-${getRandom(5)}.mp3`;
+	$audio.autoplay = true;
+	$audio.loop = true;
 
-function turnOnAudio() {
-	$audio.src = '../assets/audio/title-screen/mk3-1.mp3';
 	$audio.play();
 }
 
-turnOnAudio();
+setTimeout(turnOnAudio, 1500);
 
