@@ -395,18 +395,23 @@ input[type=radio]:checked + label > span:hover {
 }
 
 
-@media(max-width: 767.98px){
+@media(max-width: 768.98px){
+
+    .wall-left,
+    .wall-right{
+        width: 110px;
+    }
 
     .wall-left {
-        transform: translate(-260px, 0px);
+        transform: translate(-380px, 0px);
     }
 
     .wall-right {
-        transform: translate(260px, 0px);
+        transform: translate(380px, 0px);
     }
 
     .arenas{
-        width: 425px;
+        width: 600px;
         justify-content: space-between;
     }
 
@@ -429,18 +434,18 @@ input[type=radio]:checked + label > span:hover {
     }
 
     .progressbar {
-        width: 165px;
+        width: 180px;
         border: 2px solid #f5d100;
         top: 40px;
         height: 24px;
     }
 
     .player1 .progressbar {
-        left: 20px;
+        left: 50px;
     }
 
     .player2 .progressbar {
-        right: 40px;
+        right: 50px;
     }
 
     .name {
@@ -457,7 +462,7 @@ input[type=radio]:checked + label > span:hover {
     }
 
     .chat {
-        width: 425px;
+        width: 600px;
         font-size: 12px;
     }
 
@@ -496,6 +501,35 @@ input[type=radio]:checked + label > span:hover {
 }
 
 @media(max-width: 425.98px){
+    .arenas{
+        width: 410px;
+    }
+
+    .progressbar {
+        width: 140px;
+    }
+
+    .player1 .progressbar {
+        left: 40px;
+    }
+
+    .player2 .progressbar {
+        right: 40px;
+    }
+
+    .wall-left,
+    .wall-right{
+        width: 68px;
+    }
+
+    .wall-left {
+        transform: translate(-240px, 0px);
+    }
+
+    .wall-right {
+        transform: translate(240px, 0px);
+    }
+
     .inputWrap h2{
         font-size: 16px;
     }
@@ -503,20 +537,26 @@ input[type=radio]:checked + label > span:hover {
     .ul{
         font-size: 12px;
     }
+
+    .chat {
+        width: 410px;
+        padding: 15px 35px;
+        font-size: 10px;
+    }
 }
 
 @media(max-width: 375.98px){
 
     .wall-left {
-        transform: translate(-225px, 0px);
+        transform: translate(-210px, 0px);
     }
 
     .wall-right {
-       transform: translate(245px, 0px);
+       transform: translate(210px, 0px);
     }
 
     .arenas{
-        width: 355px;
+        width: 320px;
         justify-content: space-between;
     }
 
@@ -538,7 +578,11 @@ input[type=radio]:checked + label > span:hover {
     }
 
     .progressbar {
-        width: 150px;
+        width: 130px;
+    }
+
+    .player1 .progressbar {
+        left: 15px;
     }
 
     .player2 .progressbar {
@@ -547,19 +591,51 @@ input[type=radio]:checked + label > span:hover {
 
     
     .chat {
-        width: 355px;
+        width: 320px;
+        padding: 15px 25px;
     }
 
     .control {
        width: 100px;
+       top: 42%;
     }
 
     .button {
         padding: 0 10px;
         height: 28px;
         font-size: 12px;
-        
     }
+
+    .ul{
+        font-size: 11px;
+        height: 35px;
+        padding: 0 5px;
+    }
+
+    .ul label span{
+        line-height: 45px;
+    }
+
+    .ul label span::before{
+        width: 47px;
+        height: 35px;
+        margin-bottom: -40px;
+    }
+
+    .inputWrap{
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    .inputWrap h2{
+        font-size: 15px;
+        margin: 0 auto 15px;
+    }
+
+    .buttonWrap{
+        margin-top: 0;
+    }
+
 }
 
 
