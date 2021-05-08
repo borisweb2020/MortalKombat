@@ -1,6 +1,9 @@
 const $parent = document.querySelector('.parent');
 const $player = document.querySelector('.player');
 
+const $audioNamePlayer = document.getElementById('audioNamePlayer');
+const $backMusic       = document.getElementById('backMusic');
+
 const createElement = (tag, className) => {
     const $tag = document.createElement(tag);
     if (className) {
@@ -16,6 +19,7 @@ const createElement = (tag, className) => {
 
     return $tag;
 }
+
 
 function createEmptyPlayerBlock() {
     const el = createElement('div', ['character', 'div11', 'disabled']);
@@ -33,7 +37,6 @@ async function init() {
 
     let imgSrc = null;
     createEmptyPlayerBlock();
-
 
     players.forEach(item => {
         const el = createElement('div', ['character', `div${item.id}`]);
@@ -64,11 +67,16 @@ async function init() {
 
             el.classList.add('active');
 
+            $backMusic.pause();
+
+            $audioNamePlayer.src = `../assets/audio/select-screen/mk3id${item.id}.mp3`;
+            $audioNamePlayer.play();
+
             setTimeout(() => {
                 // TODO: Здесь должен быть код который перенаправит вас на ваше игровое поле...
                 //  Пример использования: window.location.pathname = 'arenas.html';
                 window.location.pathname = 'arenas.html';
-            }, 1000);
+            }, 2000);
         });
 
         img.src = item.avatar;
