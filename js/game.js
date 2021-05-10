@@ -12,7 +12,7 @@ import {showReasult} from './gameResult.js';
 import {getTextLog} from './gameResult.js';
 
 
-const {logs, $chat, $formFight, $radioHit, $radioDefence, $button, $arenas} = variables;
+const {logs, $chat, $formFight, $radioHit, $radioDefence, $button, $arenas, $audio, $audioHit} = variables;
 
 let player1;
 let player2;
@@ -49,6 +49,10 @@ export default class Game {
 		player2.createPlayer();
 
 		$arenas.classList.add(`arena${getRandom(5)}`);
+
+		$audio.src = `../assets/audio/arenas-screen/mk3-${getRandom(3) - 1}.mp3`;
+		$audio.volume = 0.5;
+		$audio.play();
 
 		function greet(player1, player2){
 			
@@ -88,6 +92,8 @@ export default class Game {
 			const {value: valueEnemy, hit: hitEnemy, defence: defenceEnemy}  = enemyAttack();
 			const {value, hit, defence} = playerAttack();
 
+			$audioHit.src = `../assets/audio/hit-sounds/mk3-${getRandom(10) - 1}.mp3`;
+			$audioHit.play();
 			
 			if(defence !== hitEnemy){
 				player2.changeHP(value);
